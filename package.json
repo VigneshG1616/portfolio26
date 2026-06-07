@@ -1,0 +1,23 @@
+{
+  "name": "portfolio-vignesh-minimalist",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "process-image": "node scripts/process-profile-image.js",
+    "install-favicon": "node scripts/install-favicon.js"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "framer-motion": "^11.18.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "sass": "^1.86.0",
+    "vite": "^6.3.5"
+  }
+}
