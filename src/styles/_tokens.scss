@@ -1,0 +1,48 @@
+// ─── Design Tokens via CSS Custom Properties ────────────────────────────────
+// Applied on :root (light) and [data-theme="dark"] (dark).
+// Every visual value lives here — components only reference var(--*).
+
+:root {
+  // Surfaces
+  --bg:           #F9F9F7;
+  --bg-2:         #FFFFFF;
+  --bg-3:         #F1F1EE;
+  --border:       #E2E2DC;
+  --border-2:     #CBCBC5;
+
+  // Text
+  --text:         #0F0F0E;
+  --text-2:       #5C5C59;
+  --text-3:       #9B9B97;
+
+  // Accent (Emerald — nods to MongoDB + Node ecosystem)
+  --accent:       #10B981;
+  --accent-dim:   rgba(16, 185, 129, 0.12);
+  --accent-hover: #059669;
+
+  // Code surfaces
+  --code-bg:      #EDEDEA;
+  --code-text:    #1E3A2F;
+
+  // Transition
+  --theme-transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+
+[data-theme="dark"] {
+  --bg:           #0C0C0C;
+  --bg-2:         #141414;
+  --bg-3:         #1A1A1A;
+  --border:       #242424;
+  --border-2:     #333333;
+
+  --text:         #F0F0EC;
+  --text-2:       #8A8A85;
+  --text-3:       #555550;
+
+  --accent:       #10B981;
+  --accent-dim:   rgba(16, 185, 129, 0.12);
+  --accent-hover: #34D399;
+
+  --code-bg:      #1A1A1A;
+  --code-text:    #6EE7B7;
+}

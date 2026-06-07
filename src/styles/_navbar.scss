@@ -1,0 +1,179 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  border-bottom: 1px solid transparent;
+  transition: var(--theme-transition), border-color .3s ease, backdrop-filter .3s ease;
+
+  &--scrolled {
+    background: rgba(var(--bg-rgb, 249, 249, 247), .88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom-color: var(--border);
+  }
+
+  &__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2.4rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include bp(sm) { padding: 0 1.6rem; }
+  }
+
+  &__logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -.04em;
+    color: var(--text);
+    transition: color .2s;
+
+    span { color: var(--accent); }
+    &:hover { color: var(--accent); }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+
+    @include bp(md) { gap: 2rem; }
+  }
+
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid rgba(16,185,129,.12);
+    padding: .25rem .6rem;
+    border-radius: 999px;
+  }
+
+  &__status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  &__status-text { @include bp(sm) { display: none; } }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 2.8rem;
+
+    @include bp(md) { display: none; }
+  }
+
+  &__link {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-2);
+    transition: color .2s;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -3px;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width .25s ease;
+    }
+    &:hover { color: var(--text); }
+    &:hover::after { width: 100%; }
+  }
+
+  // Theme toggle button
+  &__theme-btn {
+    width: 3.6rem;
+    height: 3.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    color: var(--text-2);
+    font-size: 1.5rem;
+    transition: all .2s;
+    background: transparent;
+
+    &:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+  }
+
+  // Hamburger
+  &__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: .6rem;
+
+    @include bp(md) { display: flex; }
+
+    span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text-2);
+      border-radius: 2px;
+      transition: all .25s ease;
+    }
+
+    &.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: var(--text); }
+    &.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    &.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: var(--text); }
+  }
+
+  // Mobile menu
+  &__mobile {
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: var(--bg-2);
+    border-bottom: 1px solid var(--border);
+    padding: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    z-index: 99;
+  }
+
+  &__mobile-link {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-2);
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color .2s;
+
+    &:hover, &:last-of-type { color: var(--text); border-color: transparent; }
+    i { font-size: 1.4rem; color: var(--accent); }
+  }
+
+  &__mobile-resume {
+    margin-top: 1.6rem;
+    align-self: flex-start;
+  }
+}
+
+// Override bg with rgb for backdrop support
+[data-theme="light"] .navbar--scrolled { background: rgba(249,249,247,.88); }
+[data-theme="dark"]  .navbar--scrolled { background: rgba(12,12,12,.88); }

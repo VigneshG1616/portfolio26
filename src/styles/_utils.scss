@@ -1,0 +1,135 @@
+// ─── Breakpoints ─────────────────────────────────────────────────────────────
+@mixin bp($size) {
+  @if $size == sm  { @media (max-width: 600px)  { @content; } }
+  @if $size == md  { @media (max-width: 768px)  { @content; } }
+  @if $size == lg  { @media (max-width: 1024px) { @content; } }
+}
+
+// Theme-specific fallbacks for primary button text
+:root, [data-theme="light"] {
+  .btn {
+    &--primary { color: #fff; }
+  }
+}
+
+[data-theme="dark"] {
+  .btn {
+    &--primary { color: #000; }
+  }
+}
+
+// ─── Layout ──────────────────────────────────────────────────────────────────
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+
+  @include bp(sm) { padding: 0 1.6rem; }
+}
+
+// ─── Section chrome ──────────────────────────────────────────────────────────
+.section {
+  padding: 9.6rem 0;
+  border-top: 1px solid var(--border);
+
+  @include bp(md) { padding: 6.4rem 0; }
+  @include bp(sm) { padding: 4.8rem 0; }
+}
+
+.section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 3.2rem;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+}
+
+.section__title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 1.6rem;
+}
+
+.section__sub {
+  font-size: 1.8rem;
+  color: var(--text-2);
+  line-height: 1.7;
+  max-width: 580px;
+}
+
+// ─── Buttons ─────────────────────────────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1.1rem 2.2rem;
+  border-radius: 6px;
+  transition: all .2s ease;
+  white-space: nowrap;
+
+  &--primary {
+    background: var(--text);
+    color: var(--bg);
+    &:hover { background: var(--accent); color: #fff; }
+  }
+
+  &--ghost {
+    color: var(--text);
+    border: 1px solid var(--border);
+    background: transparent;
+    &:hover { border-color: var(--accent); color: var(--accent); }
+  }
+
+  &--link {
+    color: var(--text-2);
+    padding: 0;
+    font-size: 1.3rem;
+    gap: .5rem;
+    transition: color .2s;
+    &:hover { color: var(--accent); }
+    i { font-size: 1.1rem; }
+  }
+}
+
+// ─── Tag chip ────────────────────────────────────────────────────────────────
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.15rem;
+  font-weight: 500;
+  padding: .4rem 1rem;
+  border-radius: 4px;
+  background: var(--bg-3);
+  color: var(--text-2);
+  border: 1px solid var(--border);
+  transition: all .2s;
+  white-space: nowrap;
+
+  &--accent {
+    background: var(--accent-dim);
+    color: var(--accent);
+    border-color: transparent;
+  }
+}
