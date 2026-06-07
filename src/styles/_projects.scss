@@ -1,0 +1,145 @@
+.projects {
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+  }
+
+  // ─── Table-style project list ────────────────────────────────────────────
+  &__list {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  &__list-header {
+    display: grid;
+    grid-template-columns: 3.2rem 1fr 1fr 6rem 6.4rem;
+    gap: 1.6rem;
+    padding: 1rem 2.4rem;
+    background: var(--bg-3);
+    border-bottom: 1px solid var(--border);
+
+    @include bp(md) { grid-template-columns: 3.2rem 1fr 1fr 6.4rem; }
+    @include bp(sm) { display: none; }
+  }
+
+  &__th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+
+    &--hide-md { @include bp(md) { display: none; } }
+  }
+}
+
+// ─── Individual project row ───────────────────────────────────────────────────
+.project-row {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr 1fr 6rem 6.4rem;
+  gap: 1.6rem;
+  align-items: center;
+  padding: 2rem 2.4rem;
+  border-bottom: 1px solid var(--border);
+  transition: background .18s ease;
+  cursor: default;
+
+  @include bp(md) { grid-template-columns: 3.2rem 1fr 1fr 6.4rem; }
+
+  @include bp(sm) {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "title  links"
+      "tags   links"
+      "year   .    ";
+    gap: .6rem;
+    padding: 2rem 1.6rem;
+  }
+
+  &:last-child { border-bottom: none; }
+
+  &:hover {
+    background: var(--bg-3);
+    .project-row__num { color: var(--accent); }
+  }
+
+  &__num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-3);
+    transition: color .2s;
+
+    @include bp(sm) { display: none; }
+  }
+
+  &__title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    @include bp(sm) { grid-area: title; font-size: 1.5rem; }
+  }
+
+  &__featured-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+
+    @include bp(sm) { grid-area: tags; }
+  }
+
+  &__year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem;
+    color: var(--text-3);
+
+    @include bp(md) { display: none; }
+    @include bp(sm) { display: block; grid-area: year; }
+  }
+
+  &__links {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: flex-end;
+
+    @include bp(sm) { grid-area: links; align-self: center; }
+  }
+
+  &__icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    color: var(--text-3);
+    font-size: 1.3rem;
+    transition: all .18s;
+
+    &:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+  }
+}

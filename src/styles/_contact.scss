@@ -1,0 +1,103 @@
+.contact {
+  &__inner {
+    max-width: 680px;
+  }
+
+  &__email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -.02em;
+    margin-bottom: 3.2rem;
+    position: relative;
+    transition: color .2s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -4px;
+      width: 0; height: 2px;
+      background: var(--accent);
+      transition: width .3s ease;
+    }
+    &:hover { color: var(--accent); }
+    &:hover::after { width: 100%; }
+
+    i { font-size: .7em; color: var(--text-3); transition: color .2s; }
+    &:hover i { color: var(--accent); }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 2.4rem;
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 3.2rem;
+  }
+
+  &__detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-size: 1.5rem;
+    color: var(--text-2);
+
+    i {
+      width: 2rem;
+      color: var(--accent);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  &__social-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-right: .8rem;
+  }
+
+  &__social-link {
+    width: 3.6rem;
+    height: 3.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    color: var(--text-3);
+    font-size: 1.5rem;
+    transition: all .2s;
+
+    &:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+  }
+}

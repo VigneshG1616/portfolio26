@@ -1,0 +1,92 @@
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 3.2rem 0;
+
+  &__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    @include bp(sm) {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 1.6rem;
+      gap: 1.2rem;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+  }
+
+  &__name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -.02em;
+
+    span { color: var(--accent); }
+  }
+
+  &__copy {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--text-3);
+    letter-spacing: .03em;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+
+    @include bp(sm) { flex-wrap: wrap; gap: 1.2rem; }
+  }
+
+  &__back {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    transition: color .2s;
+
+    i { font-size: 1rem; }
+    &:hover { color: var(--accent); }
+  }
+
+  &__social {
+    display: flex;
+    gap: .8rem;
+  }
+
+  &__social-link {
+    width: 3.2rem;
+    height: 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    color: var(--text-3);
+    font-size: 1.3rem;
+    transition: all .2s;
+
+    &:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+  }
+}

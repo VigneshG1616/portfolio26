@@ -1,0 +1,121 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 64px;
+
+  &__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 8rem 2.4rem 6.4rem;
+    width: 100%;
+
+    @include bp(sm) { padding: 6.4rem 1.6rem 4.8rem; }
+  }
+
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    gap: .8rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid rgba(16,185,129,.25);
+    padding: .5rem 1.2rem;
+    border-radius: 99px;
+    margin-bottom: 3.2rem;
+    letter-spacing: .04em;
+  }
+
+  &__status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: statusPulse 2s ease-in-out infinite;
+  }
+
+  &__heading {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(4.8rem, 9vw, 9.6rem);
+    font-weight: 800;
+    letter-spacing: -.04em;
+    line-height: 1.0;
+    color: var(--text);
+    margin-bottom: 2.4rem;
+  }
+
+  &__role {
+    display: flex;
+    align-items: baseline;
+    gap: 1.2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    color: var(--text-2);
+    margin-bottom: 3.2rem;
+    flex-wrap: wrap;
+
+    .separator { color: var(--border-2); }
+    .highlight  { color: var(--accent); }
+  }
+
+  &__bio {
+    font-size: clamp(1.6rem, 2vw, 1.9rem);
+    color: var(--text-2);
+    max-width: 600px;
+    line-height: 1.75;
+    margin-bottom: 4.8rem;
+  }
+
+  &__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-bottom: 6.4rem;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+    row-gap: 1.6rem;
+  }
+
+  &__meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+  }
+
+  &__meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  &__meta-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  &__meta-divider {
+    width: 1px;
+    height: 3.2rem;
+    background: var(--border);
+
+    @include bp(sm) { display: none; }
+  }
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .6; transform: scale(.85); }
+}
